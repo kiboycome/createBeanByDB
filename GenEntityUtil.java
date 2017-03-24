@@ -176,7 +176,7 @@ public class GenEntityUtil {
   
     public static void main(String[] args) {  
         String packagePath = "com.test.model";  
-        String tableName = "testjava";  
+        String tableName = "testjava";  //
         new GenEntityUtil(packagePath,tableName);  
     }  
       
