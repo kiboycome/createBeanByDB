@@ -1,1 +1,1 @@
-# createBeanByDB 调用GenEntityUtil里面的构造方法即可生成，注意导入需要的jar包
+# createBeanByDB 调用GenEntityUtil类里面的有参构造方法GenEntityUtil(String packagePath, String tableName)指定数据库表名和生成实体类所在的包路径即可生成对应表的实体类，注意导入需要的jar包， jar包都已上传
