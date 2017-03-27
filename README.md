@@ -1,0 +1,1 @@
+# createBeanByDB 调用GenEntityUtil里面的构造方法即可生成，注意导入需要的jar包
