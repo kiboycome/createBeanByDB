@@ -50,7 +50,7 @@ public class GenEntityUtil {
                 }  
                 String resPath = path+"/"+initcap(tableName) + ".java";  
                 System.out.println("resPath=" + resPath);  
-                FileUtils.writeStringToFile(new File(resPath), content);  
+                FileUtils.writeStringToFile(new File(resPath), content); //需要commons.io jar
             } catch (IOException e) {  
                 e.printStackTrace();  
             }  
@@ -175,6 +175,8 @@ public class GenEntityUtil {
         return null;  
     }  
   
+    
+    
     public static void main(String[] args) {  
         String packagePath = "com.sqlserver.bean";  
         String tableName = "uf_entrust";  
