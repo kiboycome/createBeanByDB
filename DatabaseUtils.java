@@ -7,13 +7,14 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 
 public class DatabaseUtils {
-	
-	
-	
+	/**
+	 * mysql数据库连接
+	 * @return
+	 */
 	public static Connection openConnection() {
 		Connection conn=null;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			//Class.forName("com.mysql.jdbc.Driver");
 			String url = "jdbc:mysql://localhost:3306/kiweb" ;    
 			String username = "root" ;   
 			String password = "" ;   
@@ -27,6 +28,34 @@ public class DatabaseUtils {
 		}
 		return conn;
 	}
+	
+	/**
+	 * sqlserver连接
+	 * @return
+	 */
+	public static Connection openSqlServerConnection() {
+		Connection conn=null;
+		try {
+			//Class.forName("com.mysql.jdbc.Driver");
+			String driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+			String dbURL="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=gtc";
+			String userName="ecology";
+			String userPwd="ecology";
+			Class.forName(driverName);
+			conn=DriverManager.getConnection(dbURL,userName,userPwd);
+			System.out.println("连接数据库成功");
+			Statement stmt = conn.createStatement() ;   
+			PreparedStatement pstmt = conn.prepareStatement("") ;   
+			CallableStatement cstmt = conn.prepareCall("{CALL demoSp(? , ?)}") ;   
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return conn;
+	}
+	
+	
+	
 	
 	public static void closeDatabase(Connection conn,PreparedStatement state,String s){
 		try {

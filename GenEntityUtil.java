@@ -18,7 +18,8 @@ public class GenEntityUtil {
     private boolean f_sql = false; // 是否需要导入包java.sql.*  
   
     public GenEntityUtil(String packagePath, String tableName) {  
-        Connection conn = DatabaseUtils.openConnection(); // 得到数据库连接  
+        //Connection conn = DatabaseUtils.openConnection(); // 得到数据库连接  
+        Connection conn = DatabaseUtils.openSqlServerConnection(); // 得到数据库连接  
         PreparedStatement pstmt = null;  
         String strsql = "select * from " + tableName;  
         try {  
@@ -175,8 +176,8 @@ public class GenEntityUtil {
     }  
   
     public static void main(String[] args) {  
-        String packagePath = "com.test.model";  
-        String tableName = "testjava";  //
+        String packagePath = "com.sqlserver.bean";  
+        String tableName = "uf_entrust";  
         new GenEntityUtil(packagePath,tableName);  
     }  
       
